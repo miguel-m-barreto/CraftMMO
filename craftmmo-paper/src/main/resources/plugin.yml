@@ -1,0 +1,23 @@
+name: CraftMMO
+version: ${project.version}
+main: com.craftmmo.paper.CraftMmoPlugin
+api-version: "26.1.2"
+author: CraftMMO
+description: Modular activity-based MMO progression for Paper.
+commands:
+  craftmmo:
+    description: CraftMMO root command.
+    usage: /craftmmo <help|version|health>
+permissions:
+  craftmmo.help:
+    description: Allows use of /craftmmo help.
+    default: true
+  craftmmo.version:
+    description: Allows use of /craftmmo version.
+    default: true
+  craftmmo.health:
+    description: Allows use of /craftmmo health.
+    default: true
+  craftmmo.admin.health.details:
+    description: Allows viewing detailed sanitized CraftMMO startup failure information.
+    default: op

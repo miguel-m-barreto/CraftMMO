@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: craftmmo-postgres
+    environment:
+      POSTGRES_DB: ${CRAFTMMO_POSTGRES_DB:-craftmmo}
+      POSTGRES_USER: ${CRAFTMMO_POSTGRES_USER:-craftmmo}
+      POSTGRES_PASSWORD: ${CRAFTMMO_POSTGRES_PASSWORD:-craftmmo}
+    ports:
+      - "127.0.0.1:${CRAFTMMO_POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - craftmmo-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${CRAFTMMO_POSTGRES_USER:-craftmmo} -d ${CRAFTMMO_POSTGRES_DB:-craftmmo}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: craftmmo-redis
+    profiles:
+      - redis
+    ports:
+      - "127.0.0.1:${CRAFTMMO_REDIS_PORT:-6379}:6379"
+    volumes:
+      - craftmmo-redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  craftmmo-postgres-data:
+  craftmmo-redis-data:

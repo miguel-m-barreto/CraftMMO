@@ -1,0 +1,74 @@
+# Local environment files
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Private local scratch files
+script.py
+
+# Build output
+target/
+*/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Audit and generated archives
+.audit-bundles/
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# Logs and runtime output
+*.log
+logs/
+*.pid
+*.hprof
+hs_err_pid*
+replay_pid*
+
+# IDE and editor files
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Docker and local server data
+docker-data/
+servers/
+local-server/
+server/
+run/
+world/
+world_nether/
+world_the_end/
+scripts/New-AuditBundle.ps1
+
+# Secrets and credentials
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.csr
+*.jks
+*.keystore
+credentials.json
+credentials.local.json
+secrets.json
+secrets.local.json
+token.local
+private.local

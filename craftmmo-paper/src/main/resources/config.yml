@@ -1,0 +1,6 @@
+database:
+  jdbc-url: "jdbc:postgresql://localhost:5432/craftmmo"
+  username: "craftmmo"
+  password: "craftmmo"
+  maximum-pool-size: 5
+  connection-timeout-ms: 5000
